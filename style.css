@@ -1,7 +1,7 @@
 *{
-    background-image: url("./Background.png");
-      margin: 0%;
-  padding: 0%;
+background-image: url("./Background.png");
+margin: 0%;
+ padding: 0%;
 }
 .container{
     display: flex;
@@ -22,13 +22,15 @@
     width: 30px;
 }
 .funcoes_menu{
-    justify-content: center;
+    display:flex;
     border: 2px solid white;
     width: 64%;
-
+    justify-content: center;
+    align-items:center;
+    justify-content: space-evenly;
 }
-#id_menu{
-   background-color: white;
-    height: 40px;
-    width: 30px;
+.btn{
+color: white;
+
+
 }
