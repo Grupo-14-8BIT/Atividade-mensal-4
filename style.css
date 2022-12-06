@@ -1,7 +1,5 @@
 
 
-
-
 *{
 background-image: url("./Background.png");
 margin: 0%;
@@ -26,7 +24,6 @@ margin: 0%;
     width: 30px;
 }
 .funcoes_menu{
-<<<<<<< HEAD
     display:flex;
     border: 2px solid white;
     width: 64%;
@@ -37,19 +34,4 @@ margin: 0%;
 .btn{
 color: white;
 
-
-=======
-    display: flex;
-    justify-content: center;
-    border: 2px solid white;
-    width: 64%;
-    justify-content: space-around;
-    align-items: center;
-
-}
-.btn{
-    display: flex;
-    color: white;
-   
->>>>>>> 70838a7cabbbd3e9836ea8e2bfaae4100939c1e9
 }
