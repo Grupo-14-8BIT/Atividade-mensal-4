@@ -1,11 +1,9 @@
 
 
-
-
 *{
-    background-image: url("./Background.png");
-      margin: 0%;
-  padding: 0%;
+background-image: url("./Background.png");
+margin: 0%;
+ padding: 0%;
 }
 .container{
     display: flex;
@@ -21,15 +19,15 @@
 }
 
 .funcoes_menu{
-    display: flex;
-    justify-content: center;
+    display:flex;
     border: 2px solid white;
     width: 64%;
-    justify-content: space-around;
-    align-items: center;
-
+    justify-content: center;
+    align-items:center;
+    justify-content: space-evenly;
 }
 .btn{
+<<<<<<< HEAD
     display: flex;
     color: white;
    
@@ -43,5 +41,8 @@ background-repeat: no-repeat;
 display: flex;
 
 
+=======
+color: white;
+>>>>>>> dfecec5327a6806e30ee819a2d0f3feb8017d470
 
 }
