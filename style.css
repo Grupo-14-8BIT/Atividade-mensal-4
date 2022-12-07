@@ -27,7 +27,7 @@ margin: 0%;
     justify-content: space-evenly;
 }
 .btn{
-<<<<<<< HEAD
+
     display: flex;
     color: white;
    
@@ -40,9 +40,5 @@ background-image:url("./lupa\ copiar.png");
 background-repeat: no-repeat;
 display: flex;
 
-
-=======
-color: white;
->>>>>>> dfecec5327a6806e30ee819a2d0f3feb8017d470
 
 }
