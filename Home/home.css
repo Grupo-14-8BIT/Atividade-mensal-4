@@ -34,11 +34,11 @@
     .pesquisar{
     width: 18%;
     border: 2px solid purple;
-    background-image:url("../lupa\ copiar.png");
-    background-repeat: no-repeat;
+   
     display: flex;
-    justify-content: end;
-    
+    justify-content: flex-end;
+    align-items: flex-end;
+   
     
     }
 
