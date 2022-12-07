@@ -220,4 +220,25 @@ nav ul li > div {
 
 nav ul li div { position: relative; }
 
+/* =========================================== */
 
+.img_grande{
+	margin-top: 90px;
+	width: 90%;
+}
+
+.imagens{
+	height: 100%;
+	gap: 35px;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+}
+
+.anao{
+	width: 17%;
+	height: 250px;
+	border-radius: 20px;
+}
