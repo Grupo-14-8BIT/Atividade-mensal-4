@@ -1,6 +1,10 @@
+ @import url(//db.onlinewebfonts.com/c/bec3644fbb99759baf1d9dc9df1f187e?family=LomoCopy+LT+Std+Regular); 
+
+
 *,*:before,*:after {
 	box-sizing: border-box;
 }
+
 
 :after {
 	content: "";
@@ -8,8 +12,118 @@
 
 body {
     background-image: url(../Background.png);
-    width: 100vh;
-    height: 100%;
+}
+
+
+.conteudo{
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 74px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 100px;
+	z-index: 10;
+	background-color:  rgba(60, 1, 74, 0.585);
+}
+
+header li{
+	color: rgb(255, 255, 255);
+	font-family:"LomoCopy LT Std Regular";
+	font-size: 20px;
+	list-style: none;
+}
+
+
+header .navigation{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 10px 0;
+}
+
+header .navigation li{
+	list-style: none;
+	margin: 0 10px;
+}
+
+header .navigation li a{
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+
+}
+
+header .navigation li a:hover
+{
+	color: blueviolet;
+	font-weight: bold;
+
+}
+
+header .search 
+{
+	position: relative;
+	width: 300px;
+	height: 40px;
+}
+
+header .search input 
+{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: rgba(255, 255, 255, 0.736);
+	background: transparent;
+	outline: none;
+	border:  1px solid blueviolet;
+	border-radius: 5px;
+	padding: 0 10px 0 45px;
+}
+
+header .search input::placeholder
+{
+	color: blueviolet;	
+}
+
+header .search .fa-search
+{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10px;
+	color: aliceblue;
+	border-right: 1px solid #fff;
+	width: 25px;
+	padding-right: 5px;
+
+}
+
+.barra{
+	width: 20px;
+}
+
+.logo{
+	width: 100px;
+}
+
+.lupinha{
+	width: 25px;
+}
+
+.lupa{
+		display: flex;
+		justify-content: right;
 }
 
 nav {
@@ -26,7 +140,9 @@ nav ul {
     list-style: none;
 }
 
+
 nav ul li {
+	margin-top: 1px;
 	position: relative;
     width: 70px;
     height: 80px;
@@ -42,7 +158,8 @@ nav ul li:after {
 	color: rgb(90, 20, 220);
 	top:0;
 	left: 70px;
-	width: 70px; height: 100%;
+	width: 70px; 
+	height: 100%;
     opacity:.5;
      transform: perspective(400px) rotateY(90deg);
 	transform-origin: 0 100%;
@@ -103,4 +220,25 @@ nav ul li > div {
 
 nav ul li div { position: relative; }
 
+/* =========================================== */
 
+.img_grande{
+	margin-top: 90px;
+	width: 90%;
+}
+
+.imagens{
+	height: 100%;
+	gap: 35px;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+}
+
+.anao{
+	width: 17%;
+	height: 250px;
+	border-radius: 20px;
+}
