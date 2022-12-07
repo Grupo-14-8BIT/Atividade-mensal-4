@@ -19,12 +19,7 @@
     width: 18%;
     justify-content: space-between;
 }
-#barra_opcao{
-    background-image: url("./barra\ opcoes.png");
-    background-size: cover;
-    height: 40px;
-    width: 30px;
-}
+
 .funcoes_menu{
     display: flex;
     justify-content: center;
@@ -38,4 +33,15 @@
     display: flex;
     color: white;
    
+}
+
+.pesquisar{
+width: 18%;
+border: 2px solid purple;
+background-image:url("./lupa\ copiar.png");
+background-repeat: no-repeat;
+display: flex;
+
+
+
 }
