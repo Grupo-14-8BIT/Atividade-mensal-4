@@ -5,9 +5,6 @@ let lista_jogos = 10;
 
 
 
-
-
-
 // document.addEventListener("DOMContentLoaded", funciona());
 
 const options = {
@@ -17,9 +14,6 @@ const options = {
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
 };
-
-
-
 
 
 function carregar_jogos(categoria, plataforma) {
@@ -41,6 +35,5 @@ document.addEventListener("DOMContentLoaded", () => {
     jogos = document.getElementById("jogos");
     carregar_jogos(categoria, plataforma);
     console.log(jogos);
-
 });
 
