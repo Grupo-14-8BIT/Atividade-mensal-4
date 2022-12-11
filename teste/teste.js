@@ -3,11 +3,6 @@ let categoria = "mmorpg";
 let jogos;
 let lista_jogos = 10;
 
-
-
-
-
-
 // document.addEventListener("DOMContentLoaded", funciona());
 
 const options = {
@@ -18,10 +13,6 @@ const options = {
     }
 };
 
-
-
-
-
 function carregar_jogos(categoria, plataforma) {
     fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
         .then(response => response.json())
@@ -29,9 +20,7 @@ function carregar_jogos(categoria, plataforma) {
             console.log(response[0]);
             for (var i = 0; i < lista_jogos; i++) {
 
-
-                jogos.innerHTML += '<div class="jogo"><div class="estrelas"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal">  </a><input type="radio" id="cm_star-empty">  <label for="cm_star-1"><i class="fa"></i></label></div> </div><p>' + response[i].title + '</p></div>';
-                    
+                jogos.innerHTML += '<div class="jogo"><div class="estrelas"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a>  <input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div> </div><p>' + response[i].title + '</p></div>';
 
             }
         }).catch(err => console.error(err));
@@ -43,4 +32,3 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(jogos);
 
 });
-

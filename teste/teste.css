@@ -156,12 +156,14 @@
  
  nav ul li:nth-child(1):after {
      content: "Home";
+     font-weight: 800;
      line-height: 88px;
      width: 100px;
  }
  
  nav ul li:nth-child(2):after {
      content: "PVP";
+     font-weight: 800;
      line-height: 88px;
      width: 100px;
  }
@@ -169,32 +171,46 @@
  nav ul li:nth-child(3):after {
      content: "MMOFPS";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(4):after {
      content: "SURVIVAL";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(5):after {
      content: "CARD";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(6):after {
      content: "FIGHTING";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(7):after {
      content: "SHOOTING";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
+
+ nav ul li:nth-child(8):after {
+    content: "OPEN-WORLD";
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 88px;
+    width: 100px;
+}
+
  
  nav ul li:hover {
      transform: translateX(-70px);
@@ -214,6 +230,15 @@
  nav ul li div {
      position: relative;
  }
+ 
+ .mundo-icon{
+    font-size: 20px;
+ }
+
+ .mundo{
+    width: 60%;
+    filter: invert();
+ }
  /* =========================================== */
  
  .img_grande {
@@ -221,19 +246,23 @@
      width: 90%;
  }
  
- .estrelas input[type=radio] {
-    display: none;
+input[type=checkbox] {
+    
+   
 }
-.estrelas label i.fa:before {
+label i.fa:before {
     content:'\f005';
+    color: #CCC;
+    cursor: pointer;
+}
+input[type=checkbox]:checked ~ label i.fa:before {
     color: #FC0;
     
 }
-.estrelas input[type=radio]:checked ~ label i.fa:before {
-      color: #CCC;
-      
-  }
  
+  .search input:focus{
+    background-color: #350154;
+  }
   
   .jogos {
       color: #fff;
@@ -257,7 +286,6 @@
     .imagem-jogo {
         display: flex;
         align-items: flex-start;
-     padding: 20px 40px 5px 40px;
     }
  
     .imagem-jogo input {
