@@ -18,7 +18,7 @@
      align-items: center;
      gap: 30px;
  }
- 
+
  header {
      position: absolute;
      top: 0;
@@ -56,6 +56,7 @@
      color: rgb(255, 255, 255);
      text-decoration: none;
      font-weight: 500;
+     font-size: 1.5vw;
      letter-spacing: 1px;
  }
  
@@ -66,7 +67,7 @@
  
  header .search {
      position: relative;
-     width: 300px;
+     width: 20vw;
      height: 40px;
  }
  
@@ -78,13 +79,13 @@
      color: rgba(255, 255, 255, 0.736);
      background: transparent;
      outline: none;
-     border: 1px solid blueviolet;
+     border: 1px solid rgb(175, 117, 230);
      border-radius: 5px;
      padding: 0 10px 0 45px;
  }
  
  header .search input::placeholder {
-     color: blueviolet;
+     color: rgb(202, 161, 240);
  }
  
  header .search .fa-search {
@@ -297,12 +298,12 @@ input[type=checkbox]:checked ~ label i.fa:before {
     .botao_carregar{
         font-size: 800;
         font-weight: bold;
-    padding: 5px 20px 5px 20px;
-    align-items: center;
-    background-color:#02001f ;
-    color: white;
-    border-color: rgb(60, 0, 98);
-    box-shadow: 1px 1px #f3f3f52f;
+        padding: 5px 20px 5px 20px;
+        align-items: center;
+        background-color:#02001f ;
+        color: white;
+        border-color: rgb(60, 0, 98);
+        box-shadow: 1px 1px #f3f3f52f;
      }
 
      .center{
@@ -310,4 +311,7 @@ input[type=checkbox]:checked ~ label i.fa:before {
         flex-direction: column;
         align-items: center;
       }
-  
+ 
+      .hide{
+        display: none;
+      }

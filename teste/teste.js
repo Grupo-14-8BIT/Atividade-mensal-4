@@ -3,6 +3,11 @@ let categoria = "mmorpg";
 let jogos;
 let lista_jogos = 10;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5d121f36df0980d3fd0fd74cf0ab16d097fe1b18
 // document.addEventListener("DOMContentLoaded", funciona());
 
 const options = {
@@ -13,6 +18,10 @@ const options = {
     }
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d121f36df0980d3fd0fd74cf0ab16d097fe1b18
 function carregar_jogos(categoria, plataforma) {
     fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
         .then(response => response.json())
@@ -30,5 +39,4 @@ document.addEventListener("DOMContentLoaded", () => {
     jogos = document.getElementById("jogos");
     carregar_jogos(categoria, plataforma);
     console.log(jogos);
-
 });
