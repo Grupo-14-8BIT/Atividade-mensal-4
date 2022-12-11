@@ -100,6 +100,7 @@
  
  .barra {
      width: 20px;
+    
  }
  
  .logo {
@@ -220,28 +221,29 @@
      width: 90%;
  }
  
- .imagens {
-     height: 100%;
-     gap: 35px;
-     margin-top: 40px;
-     display: flex;
-     flex-direction: row;
-     align-items: center;
- }
+ .estrelas input[type=radio] {
+    display: none;
+}
+.estrelas label i.fa:before {
+    content:'\f005';
+    color: #FC0;
+    
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+      color: #CCC;
+      
+  }
  
- .anao {
-     width: 17%;
-     height: 250px;
-     border-radius: 20px;
- }
- 
- .jogos {
-     color: #fff;
-     display: flex;
-     flex-wrap: wrap;
- }
- 
- .jogo {
+  
+  .jogos {
+      color: #fff;
+     display: flex;  
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.jogo {
      margin-top: 3%;
      display: flex;
      flex-direction: column;
@@ -250,15 +252,34 @@
  
  .jogo img {
      border-radius: 10%;
- }
+    }
+    
+    .imagem-jogo {
+        display: flex;
+        align-items: flex-start;
+     padding: 20px 40px 5px 40px;
+    }
  
- .imagem-jogo {
-     display: flex;
-     align-items: flex-start;
- }
- 
- .imagem-jogo input {
+    .imagem-jogo input {
      position: relative;
      top: 10px;
      left: -30px;
- }
+    }
+    
+    .botao_carregar{
+        font-size: 800;
+        font-weight: bold;
+    padding: 5px 20px 5px 20px;
+    align-items: center;
+    background-color:#02001f ;
+    color: white;
+    border-color: rgb(60, 0, 98);
+    box-shadow: 1px 1px #f3f3f52f;
+     }
+
+     .center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  

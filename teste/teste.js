@@ -30,8 +30,8 @@ function carregar_jogos(categoria, plataforma) {
             for (var i = 0; i < lista_jogos; i++) {
 
 
-                jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"></a><input type="checkbox"></div><p>' + response[i].title + '</p></div>';
-
+                jogos.innerHTML += '<div class="jogo"><div class="estrelas"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal">  </a><input type="radio" id="cm_star-empty">  <label for="cm_star-1"><i class="fa"></i></label></div> </div><p>' + response[i].title + '</p></div>';
+                    
 
             }
         }).catch(err => console.error(err));
@@ -43,3 +43,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(jogos);
 
 });
+
