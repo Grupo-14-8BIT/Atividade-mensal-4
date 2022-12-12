@@ -4,6 +4,7 @@ let categoria;
 let jogos;
 let lista_jogos = 10;
 let destaque;
+let carregar;
 // headers da requisicao
 const options = {
     method: 'GET',
@@ -12,6 +13,7 @@ const options = {
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
 };
+
 
 //funcao para carregar os jogos
 function carregar_jogos(categoria, plataforma) {
@@ -45,9 +47,15 @@ function carregar_jogos(categoria, plataforma) {
                 }
             }).catch(err => console.error(err));
     }
-    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+    //jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
 
+}
+
+//funcao para carregar +10 jogos
+function carregar_mais() {
+    lista_jogos += 10;
+    carregar_jogos(categoria, plataforma);
 }
 
 // funcao para selecionar a categoria
@@ -57,7 +65,7 @@ function selecionar_categoria(cat) {
     carregar_jogos(categoria, plataforma);
 
     for (var i = 0; i <= categorias.length; i++) {
-        if (cat === categorias[i]) {
+        if (cat == categorias[i]) {
             cat.style.backgroundColor = "red";
         } else { categorias[i].style.backgroundColor = "rgba(60, 1, 74, 0.585)"; }
     }
@@ -78,6 +86,7 @@ const categorias = [home, pvp, mmofps, survival, card, fighting, shooting, world
 console.log(home);
 plataforma = "pc";
 categoria = "home";
+carregar = document.getElementById("carregar");
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
 selecionar_categoria(home)
