@@ -45,6 +45,8 @@ function carregar_jogos(categoria, plataforma) {
                 }
             }).catch(err => console.error(err));
     }
+    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+
 
 }
 
