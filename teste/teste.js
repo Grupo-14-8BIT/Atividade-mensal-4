@@ -1,10 +1,10 @@
-let plataforma = "all";
-let categoria = "mmorpg";
+// variaveis para exibir os jogos
+let plataforma;
+let categoria;
 let jogos;
 let lista_jogos = 10;
-
-
-
+let destaque;
+// headers da requisicao
 const options = {
     method: 'GET',
     headers: {
@@ -13,23 +13,69 @@ const options = {
     }
 };
 
-
+//funcao para carregar os jogos
 function carregar_jogos(categoria, plataforma) {
-    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response[0]);
-            for (var i = 0; i < lista_jogos; i++) {
 
-                jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+    if (categoria == "home") {
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma, options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response[0]);
+                destaque.innerHTML = '<img class="img_grande" src="' + response[0].thumbnail + '" alt="iamgem grande"></img>';
+                jogos.innerHTML = '';
+                for (var i = 1; i <= lista_jogos; i++) {
 
-            }
-        }).catch(err => console.error(err));
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+
+                }
+            }).catch(err => console.error(err));
+
+    } else {
+
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response[0]);
+                destaque.innerHTML = '<img class="img_grande" src="' + response[0].thumbnail + '" alt="iamgem grande"></img>';
+                jogos.innerHTML = '';
+                for (var i = 1; i <= lista_jogos; i++) {
+
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+
+                }
+            }).catch(err => console.error(err));
+    }
+
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    jogos = document.getElementById("jogos");
-    carregar_jogos(categoria, plataforma);
-    console.log(jogos);
+// funcao para selecionar a categoria
+function selecionar_categoria(cat) {
 
-});
+    categoria = cat.id;
+    carregar_jogos(categoria, plataforma);
+
+    for (var i = 0; i <= categorias.length; i++) {
+        if (cat === categorias[i]) {
+            cat.style.backgroundColor = "red";
+        } else { categorias[i].style.backgroundColor = "rgba(60, 1, 74, 0.585)"; }
+    }
+}
+
+// coletando os IDs das categorias para jogos
+const home = document.getElementById('home');
+const pvp = document.getElementById('pvp');
+const mmofps = document.getElementById('mmofps');
+const survival = document.getElementById('survival');
+const card = document.getElementById('card');
+const fighting = document.getElementById('fighting');
+const shooting = document.getElementById('shooter');
+const world = document.getElementById('open-world');
+const categorias = [home, pvp, mmofps, survival, card, fighting, shooting, world];
+
+////////////////////////////////
+console.log(home);
+plataforma = "pc";
+categoria = "home";
+jogos = document.getElementById("jogos");
+destaque = document.getElementById("destaque");
+selecionar_categoria(home)
