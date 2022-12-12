@@ -1,0 +1,31 @@
+.bod{
+    border: 1px solid red;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.search-in{
+    width: 300px;
+    height: 30px;
+}
+.card{
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: center;
+}
+.games{
+    border: 1px solid red;
+}
+.hide{
+    display: none;
+}
