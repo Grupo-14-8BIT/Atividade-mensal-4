@@ -242,3 +242,19 @@ nav ul li div { position: relative; }
 	height: 250px;
 	border-radius: 20px;
 }
+.imagem{
+	border-radius: 14px;
+}
+.game-name{
+	color: aliceblue;
+}
+.games{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.search-res{
+	color: aliceblue;
+	font-family:"LomoCopy LT Std Regular";
+}

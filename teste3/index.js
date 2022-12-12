@@ -14,19 +14,22 @@ const options = {
         }
 };
 
+
+
 fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
 .then(response => response.json())
 .then(response => {
 
-    for ( i = 0; i < list_games; i++) {
+searchInput.addEventListener("input", (e) => {
 
-        games.innerHTML += `<div class="games">
-                                    <img src="${response[i].thumbnail}" alt="anal"> 
-                                    <p>${response[i].title}</p>
-                            </div>`
+    // for ( i = 0; i < list_games; i++) {
 
-    }
-        searchInput.addEventListener("input", (e) => {
+    //     games.innerHTML += `<div class="games">
+    //                                 <img src="${response[i].thumbnail}" alt="anal"> 
+    //                                 <p>${response[i].title}</p>
+    //                         </div>`
+
+    // }
     
         const value = e.target.value;
         console.log("value:");
@@ -38,11 +41,16 @@ fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
             if(response[i].title == value){
 
                 games.innerHTML = `<div class="games">
+                                        <a href="${response[i].game_url} " target="blank">
                                         <img src="${response[i].thumbnail}" alt="anal"> 
+                                        </a>
                                         <p>${response[i].title}</p>
                                     </div>`
+                
 
             }if(response[i].title != value){
+
+
                 
                 console.log ("not found");
             }
@@ -53,8 +61,9 @@ fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
 }).catch(err => console.error(err));
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     games = document.getElementById("games");
 
 });
+
 
