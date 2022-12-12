@@ -1,0 +1,33 @@
+.estrelas input[type=radio] {
+    display: none;
+  }
+   .estrelas label i.dourado:before {
+    content:'\f005';
+    color: #FC0;
+  }
+  .estrelas input[type=radio]:after {
+    color: yellow
+  }  
+
+  /* btn{
+    color: black;
+    }
+    
+    btn:hover{
+    /*Como ele vai ficar ao passar o mouse, ou para o mouse encima*/
+    /* color: brown;
+    }
+     */
+    /* btn:focus{ */
+    /*aqui está a resolução aqui define a cor que o botão deve receber depois de clicar*/
+    /* color: yellow;
+    } */ 
+
+.dourado{
+-webkit-box-shadow: 12px 12px 29px rgb(255, 0, 0);
+display: inline;
+}
+
+.branco {
+    color: rgb(255, 0, 0);
+}

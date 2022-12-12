@@ -1,0 +1,9 @@
+.css-sprite {
+    background:  url(https://cdn.sstatic.net/Sites/br/img/sprites.svg?v=554232ea0d79) -5px -120px no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.css-sprite:hover {
+    background-position: -45px -120px;
+}

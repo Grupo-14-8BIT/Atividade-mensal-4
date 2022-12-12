@@ -18,7 +18,10 @@
      align-items: center;
      gap: 30px;
  }
- 
+
+div{
+    display: flex;
+}
  header {
      position: absolute;
      top: 0;
@@ -36,7 +39,7 @@
  header li {
      color: rgb(255, 255, 255);
      font-family: "LomoCopy LT Std Regular";
-     font-size: 20px;
+     font-size: 2%;
      list-style: none;
  }
  
@@ -44,7 +47,7 @@
      display: flex;
      justify-content: center;
      flex-wrap: wrap;
-     margin: 10px 0;
+     gap: 4vh;
  }
  
  header .navigation li {
@@ -56,6 +59,7 @@
      color: rgb(255, 255, 255);
      text-decoration: none;
      font-weight: 500;
+     font-size: 1.5vw;
      letter-spacing: 1px;
  }
  
@@ -66,7 +70,7 @@
  
  header .search {
      position: relative;
-     width: 300px;
+     width: 20vw;
      height: 40px;
  }
  
@@ -78,13 +82,13 @@
      color: rgba(255, 255, 255, 0.736);
      background: transparent;
      outline: none;
-     border: 1px solid blueviolet;
+     border: 1px solid rgb(175, 117, 230);
      border-radius: 5px;
      padding: 0 10px 0 45px;
  }
  
  header .search input::placeholder {
-     color: blueviolet;
+     color: rgb(202, 161, 240);
  }
  
  header .search .fa-search {
@@ -100,10 +104,11 @@
  
  .barra {
      width: 20px;
+    
  }
  
  .logo {
-     width: 100px;
+     width: 7vw;
  }
  
  .lupinha {
@@ -155,12 +160,14 @@
  
  nav ul li:nth-child(1):after {
      content: "Home";
+     font-weight: 800;
      line-height: 88px;
      width: 100px;
  }
  
  nav ul li:nth-child(2):after {
      content: "PVP";
+     font-weight: 800;
      line-height: 88px;
      width: 100px;
  }
@@ -168,32 +175,46 @@
  nav ul li:nth-child(3):after {
      content: "MMOFPS";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(4):after {
      content: "SURVIVAL";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(5):after {
      content: "CARD";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(6):after {
      content: "FIGHTING";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
  
  nav ul li:nth-child(7):after {
      content: "SHOOTING";
      line-height: 88px;
+     font-weight: 800;
      width: 100px;
  }
+
+ nav ul li:nth-child(8):after {
+    content: "OPEN-WORLD";
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 88px;
+    width: 100px;
+}
+
  
  nav ul li:hover {
      transform: translateX(-70px);
@@ -213,52 +234,100 @@
  nav ul li div {
      position: relative;
  }
+ 
+ .mundo-icon{
+    font-size: 20px;
+ }
+
+ .mundo{
+    width: 60%;
+    filter: invert();
+ }
  /* =========================================== */
  
  .img_grande {
      margin-top: 90px;
      width: 90%;
- }
- 
- .imagens {
-     height: 100%;
-     gap: 35px;
-     margin-top: 40px;
-     display: flex;
-     flex-direction: row;
+     display: inline-flex;
+     justify-content: center;
      align-items: center;
  }
  
- .anao {
-     width: 17%;
-     height: 250px;
-     border-radius: 20px;
- }
+input[type=checkbox] {
+    margin: 0px;
+    display: none;
+   
+}
+
+
+label i.fa:before {
+    content:'\f005';
+    color: #CCC;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked ~ label i.fa:before {
+    color: #FC0;
+    
+}
  
- .jogos {
-     color: #fff;
-     display: flex;
-     flex-wrap: wrap;
- }
- 
- .jogo {
+  .search input:focus{
+    background-color: #350154;
+  }
+  
+  .jogos {
+      color: #fff;
+     display: flex;  
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+   gap: 8vh;
+   align-items: center;
+   justify-content: center;
+   font-size: 1vw;
+}
+
+.jogo {
      margin-top: 3%;
-     display: flex;
+     display: inline-flex;
      flex-direction: column;
      align-items: center;
  }
  
  .jogo img {
      border-radius: 10%;
- }
+     width: 40vh;
+    }
+    
+    .imagem-jogo {
+        display: inline-flex;
+        align-items: flex-start;
+
+    }
  
- .imagem-jogo {
-     display: flex;
-     align-items: flex-start;
- }
- 
- .imagem-jogo input {
+    .imagem-jogo input {
      position: relative;
      top: 10px;
      left: -30px;
- }
+    }
+    
+    .botao_carregar{
+        font-size: 800;
+        font-weight: bold;
+        padding: 5px 20px 5px 20px;
+        align-items: center;
+        background-color:#02001f ;
+        color: white;
+        border-color: rgb(60, 0, 98);
+        box-shadow: 1px 1px #f3f3f52f;
+     }
+
+     .center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+ 
+      .hide{
+        display: none;
+      }
