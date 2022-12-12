@@ -256,19 +256,16 @@ div{
 input[type=checkbox] {
     margin: 0px;
     display: none;
-   
 }
 
-
-label i.fa:before {
+ label i.fa:before {
     content:'\f005';
     color: #CCC;
     cursor: pointer;
 }
 
 input[type=checkbox]:checked ~ label i.fa:before {
-    color: #FC0;
-    
+    color: #FC0;    
 }
  
   .search input:focus{
