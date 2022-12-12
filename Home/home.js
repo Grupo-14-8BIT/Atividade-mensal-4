@@ -14,45 +14,38 @@ const options = {
         }
 };
 
-
-
 fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
 .then(response => response.json())
 .then(response => {
 
-searchInput.addEventListener("input", (e) => {
-
-    // for ( i = 0; i < list_games; i++) {
-
-    //     games.innerHTML += `<div class="games">
-    //                                 <img src="${response[i].thumbnail}" alt="anal"> 
-    //                                 <p>${response[i].title}</p>
-    //                         </div>`
-
-    // }
-    
-        const value = e.target.value;
-        console.log("value:");
-        console.log(value);
-        
+searchInput.addEventListener("keyup", (e) => {    
 
         for( i=0 ; i<list_games; i++){
+
+            const value = e.target.value;
+            console.log("value:");
+            console.log(value);
 
             if(response[i].title == value){
 
                 games.innerHTML = `<div class="games">
-                                        <h3 class="search-res">Search Results</h3>
-                                        <a href="${response[i].game_url} " target="blank">
-                                        <img class="imagem" src="${response[i].thumbnail}" alt="anal"> 
-                                        </a>
-                                        <p class="game-name" >${response[i].title}</p>
+                                        <div class="gam">
+                                                <h3 class="search-res">Search Results</h3>
+                                                <a href="${response[i].game_url} " target="blank">
+                                                <img class="imagem" src="${response[i].thumbnail}" alt="anal"> 
+                                                </a>
+                                                <p class="game-name" >${response[i].title}</p>
+                                        </div>
                                     </div>`
                 
 
             }if(response[i].title != value){
+
+                games.innerHTML = `<div class="games"></div>`
                 
                 console.log ("not found");
             }
+    
         }
     })
         

@@ -245,14 +245,31 @@ nav ul li div { position: relative; }
 .imagem{
 	border-radius: 14px;
 }
+.imagem:hover{
+	border-radius: 0px;
+}
 .game-name{
 	color: aliceblue;
 }
 .games{
+	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+.gam{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.gam:hover{
+	background-color: rgb(16, 0, 55);
+	transition:all .4s ease-out;
+	border-radius: 20px;
+	font-family:"LomoCopy LT Std Regular";
+	box-shadow: 2px 2px 6px;
 }
 .search-res{
 	color: aliceblue;

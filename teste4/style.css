@@ -1,4 +1,4 @@
-/* .search-wrapper {
+ .search-wrapper {
     display: flex;
     flex-direction: column;
     gap: .25rem;
@@ -10,7 +10,7 @@
   
   .user-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: .25rem;
     margin-top: 1rem;
   }
@@ -28,7 +28,7 @@
   .card > .body {
     font-size: .8rem;
     color: #777;
-  } */
+  }
   
   .hide {
     display: none;
