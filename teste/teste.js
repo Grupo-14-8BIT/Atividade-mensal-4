@@ -27,7 +27,7 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
@@ -42,12 +42,13 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty" >  <label for="cm_star-empty"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
     }
     //jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+
 
 
 }
@@ -56,6 +57,7 @@ function carregar_jogos(categoria, plataforma) {
 function carregar_mais() {
     lista_jogos += 10;
     carregar_jogos(categoria, plataforma);
+
 }
 
 // funcao para selecionar a categoria
