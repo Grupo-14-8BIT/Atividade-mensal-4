@@ -1,61 +1,35 @@
-let games;
-let list_games = 372;
-let i;
-const searchInput = document.getElementById("searchInput");
+let plataforma = "all";
+let categoria = "mmorpg";
+let jogos;
+let lista_jogos = 10;
+
+
 
 const options = {
-	method: 'GET',
-
-        headers: {
-
-            'X-RapidAPI-Key': '7f8c7381b8mshc8673d5334fb03fp1baa05jsndefe19a557df',
-            'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-
-        }
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '968d1203e3msh721b6f8d73b6fe9p1da73fjsnd2c87f2e006d',
+        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
 };
 
-fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
-.then(response => response.json())
-.then(response => {
 
-searchInput.addEventListener("keyup", (e) => {    
+function carregar_jogos(categoria, plataforma) {
+    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
+        .then(response => response.json())
+        .then(response => {
+            console.log(response[0]);
+            for (var i = 0; i < lista_jogos; i++) {
 
-        for( i=0 ; i<list_games; i++){
+                jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty'+[i]+'"> <label for=cm_star-empty'+[i]+'><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
-            const value = e.target.value;
-            console.log("value:");
-            console.log(value);
-
-            if(response[i].title == value){
-
-                games.innerHTML = `<div class="games">
-                                        <div class="gam">
-                                                <h3 class="search-res">Search Results</h3>
-                                                <a href="${response[i].game_url} " target="blank">
-                                                <img class="imagem" src="${response[i].thumbnail}" alt="anal"> 
-                                                </a>
-                                                <p class="game-name" >${response[i].title}</p>
-                                        </div>
-                                    </div>`
-                
-
-            }if(response[i].title != value){
-
-                games.innerHTML = `<div class="games"></div>`
-                
-                console.log ("not found");
             }
-    
-        }
-    })
-        
-    //});
-}).catch(err => console.error(err));
+        }).catch(err => console.error(err));
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    games = document.getElementById("games");
+    jogos = document.getElementById("jogos");
+    carregar_jogos(categoria, plataforma);
+    console.log(jogos);
 
 });
-
-
