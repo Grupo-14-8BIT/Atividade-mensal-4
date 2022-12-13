@@ -76,21 +76,24 @@ function selecionar_categoria(cat) {
 // funcao para selecionar plataforma 
 
 function plataformas(plat) {
+
     plataforma = plat;
+
     if (plataforma == "all") {
         all.style.color = "blueviolet";
         pc.style.color = "white";
         browser.style.color = "white"
-    } else if (plataforma == "pc") {
+    }
+    if (plataforma == "pc") {
         pc.style.color = "blueviolet";
         browser.style.color = "white"
         all.style.color = "white";
-    } else if (plataforma == "browser") {
+    }
+    if (plataforma == "browser") {
         browser.style.color = "blueviolet"
         all.style.color = "white";
         pc.style.color = "white";
     }
-
 
     carregar_jogos(categoria, plataforma);
 }
@@ -115,10 +118,13 @@ const all = document.getElementById('all');
 
 
 console.log(home);
-plataforma = "pc";
-categoria = "all";
+plataforma;
+categoria;
 carregar = document.getElementById("carregar");
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
+
+
+plataformas("all")
 selecionar_categoria(home)
-plataformas(all);
+carregar_jogos(categoria, plataforma);
