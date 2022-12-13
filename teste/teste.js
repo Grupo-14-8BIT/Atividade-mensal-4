@@ -5,24 +5,24 @@ let games;
 let users = [];
 
 searchInput.addEventListener("input", habib => {
-  const value = habib.target.value.toLowerCase();
-  jogos.innerHTML = '';
-  if(value==""){
-    carregar_jogos("home","all");
-  }
-  if(users != ''){
-    users.forEach(user => {
-        const isVisible = user.title.toLowerCase().includes(value);
-        user.element.classList.toggle("hide", !isVisible);
-    })
-  }else {
-    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
-    .then(response => response.json())
-    .then(data => {
-      users = data.map(user => {
-      const card = userCardTemplate.content.cloneNode(true).children[0];
-      const header = card.querySelector("[data-header]");
-        header.innerHTML = `
+    const value = habib.target.value.toLowerCase();
+    jogos.innerHTML = '';
+    if (value == "") {
+        carregar_jogos("home", "all");
+    }
+    if (users != '') {
+        users.forEach(user => {
+            const isVisible = user.title.toLowerCase().includes(value);
+            user.element.classList.toggle("hide", !isVisible);
+        })
+    } else {
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
+            .then(response => response.json())
+            .then(data => {
+                users = data.map(user => {
+                    const card = userCardTemplate.content.cloneNode(true).children[0];
+                    const header = card.querySelector("[data-header]");
+                    header.innerHTML = `
                                             <div class="imagem-jogo">
                                                 <a href="${user.game_url}" target="blank">
                                                     <img src="${user.thumbnail}" alt="anal">
@@ -34,16 +34,16 @@ searchInput.addEventListener("input", habib => {
                                                 </label>
                                             </div>
                                             <p>${user.title}</p>`
-        userCardContainer.append(card);
-        return { title: user.title,id: user.id, thumbnail: user.thumbnail,game_url: user.game_url ,element: card }
-      })
-    });
-    users.forEach(user => {
-      const isVisible = user.title.toLowerCase().includes(value);
-      user.element.classList.toggle("hide", !isVisible);
-    })
-  }
-  
+                    userCardContainer.append(card);
+                    return { title: user.title, id: user.id, thumbnail: user.thumbnail, game_url: user.game_url, element: card }
+                })
+            });
+        users.forEach(user => {
+            const isVisible = user.title.toLowerCase().includes(value);
+            user.element.classList.toggle("hide", !isVisible);
+        })
+    }
+
 });
 
 // variaveis para exibir os jogos
@@ -75,7 +75,7 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
@@ -90,7 +90,7 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
@@ -172,8 +172,7 @@ carregar = document.getElementById("carregar");
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
 
-selecionar_categoria(home);
-plataformas("all")
-selecionar_categoria(home)
-carregar_jogos(categoria, plataforma);
 
+plataformas("all")
+selecionar_categoria(home);
+carregar_jogos(categoria, plataforma);
