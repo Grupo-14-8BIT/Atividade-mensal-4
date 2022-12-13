@@ -1,3 +1,51 @@
+const userCardTemplate = document.querySelector("[data-user-template]");
+const userCardContainer = document.querySelector("[data-user-cards-container]");
+const searchInput = document.getElementById("search_id");
+let games;
+let users = [];
+
+searchInput.addEventListener("input", habib => {
+  const value = habib.target.value.toLowerCase();
+  jogos.innerHTML = '';
+  if(value==""){
+    carregar_jogos("home","all");
+  }
+  if(users != ''){
+    users.forEach(user => {
+        const isVisible = user.title.toLowerCase().includes(value);
+        user.element.classList.toggle("hide", !isVisible);
+    })
+  }else {
+    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
+    .then(response => response.json())
+    .then(data => {
+      users = data.map(user => {
+      const card = userCardTemplate.content.cloneNode(true).children[0];
+      const header = card.querySelector("[data-header]");
+        header.innerHTML = `
+                                            <div class="imagem-jogo">
+                                                <a href="${user.game_url}" target="blank">
+                                                    <img src="${user.thumbnail}" alt="anal">
+                                                </a><input type="checkbox" id="cm_star-empty${user.id}" >  
+                                                <label for="cm_star-empty${user.id}">
+                                                    <i class="fa">
+
+                                                    </i>
+                                                </label>
+                                            </div>
+                                            <p>${user.title}</p>`
+        userCardContainer.append(card);
+        return { title: user.title,id: user.id, thumbnail: user.thumbnail,game_url: user.game_url ,element: card }
+      })
+    });
+    users.forEach(user => {
+      const isVisible = user.title.toLowerCase().includes(value);
+      user.element.classList.toggle("hide", !isVisible);
+    })
+  }
+  
+});
+
 // variaveis para exibir os jogos
 let plataforma;
 let categoria;
@@ -79,4 +127,7 @@ plataforma = "pc";
 categoria = "home";
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
-selecionar_categoria(home)
+selecionar_categoria(home);
+
+
+

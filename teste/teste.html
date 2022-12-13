@@ -27,8 +27,9 @@
         </div>
 
         <div class="search">
-            <input class="search" type="text" placeholder="Search">
+            <input class="search" id="search_id" type="text" placeholder="Search" data-search>
             <img class="fa-search" src="../lupa copiar.png" alt="">
+
         </div>
     </header>
 
@@ -80,16 +81,29 @@
     <section id="games">
 
         <div class="center">
+    
             <div id="destaque">
-
             </div>
             <div id="jogos" class="jogos">
+                <template data-user-template>
+                            <div class="card jogo">
+                            <div id="games" class="header" data-header></div>
+                        </div>
+                  </template>
             </div>
-            <button id="carregar" class="botao_carregar" onclick=" carregar_mais()">Carregar Mais</button>
 
+            <div class="user-cards" data-user-cards-container></div>
+            
+          
+
+
+            
+
+            <button id="carregar" class="botao_carregar" onclick=" carregar_mais()">Carregar Mais</button>
+            
         </div>
     </section>
-
-    <script src="teste.js"></script>
 </body>
 </html>
+
+<script src="teste.js"></script>
