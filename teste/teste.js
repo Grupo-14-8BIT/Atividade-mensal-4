@@ -96,11 +96,11 @@ function carregar_jogos(categoria, plataforma) {
             }).catch(err => console.error(err));
     }
     //jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-
-
-
 }
 
+function favoritar(){
+    let favorito = document.getElementById("")
+}
 //funcao para carregar +10 jogos
 function carregar_mais() {
     lista_jogos += 10;
@@ -142,7 +142,6 @@ function plataformas(plat) {
         all.style.color = "white";
         pc.style.color = "white";
     }
-
     carregar_jogos(categoria, plataforma);
 }
 
@@ -172,8 +171,7 @@ carregar = document.getElementById("carregar");
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
 
-selecionar_categoria(home);
 plataformas("all")
-selecionar_categoria(home)
+selecionar_categoria(home);
 carregar_jogos(categoria, plataforma);
 
