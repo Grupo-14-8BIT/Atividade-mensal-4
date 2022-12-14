@@ -71,11 +71,13 @@ function carregar_jogos(categoria, plataforma) {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma, options)
             .then(response => response.json())
             .then(response => {
-                destaque.innerHTML = '<img class="img_grande" src="' + response[0].thumbnail + '" alt="iamgem grande"></img>';
+
+                console.log(response[0]);
+                destaque.innerHTML = '<video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="iamgem grande" type="video/webm"></video>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input name="' + response[i].id + '" type="checkbox" class="fa" onclick="clica()" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
@@ -85,19 +87,19 @@ function carregar_jogos(categoria, plataforma) {
             fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
             .then(response => response.json())
             .then(response => {
-                console.log(response);
-                destaque.innerHTML = '<img class="img_grande" src="' + response[0].thumbnail + '" alt="iamgem grande"></img>';
+                console.log(response[0]);
+                destaque.innerHTML = '<video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="iamgem grande" type="video/webm"></video>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
-                    
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input name="' + response[i].id + '" type="checkbox" onclick="clica()" class="fa" id="cm_star-empty' + [i] + '" >  <label for="cm_star-empty' + [i] + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-                    
-                }
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+
             }).catch(err => console.error(err));
     }
-    //jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input type="checkbox" id="cm_star-empty' + [i] + '"> <label for=cm_star-empty' + [i] + '><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 }
 
+function favoritar() {
+    let favorito = document.getElementById("")
+}
 //funcao para carregar +10 jogos
 function carregar_mais() {
     lista_jogos += 10;
@@ -172,18 +174,23 @@ plataformas("all")
 selecionar_categoria(home);
 carregar_jogos(categoria, plataforma);
 
-var checked;
-var checkout;
-let aaa = Array();
 
-
-checked = document.querySelectorAll("input:checked");
-
-function clica(){
-for(i=0; i<jogos.length; i++){
-    if(document.getElementById("cm_star-empty" + [i] == "input:checked") ){
-        aaa[i] = jogos.id[i];
-    }
+// FAVORITOS
+function fav() {
+    checked = document.querySelectorAll('input:checked');
+    console.log(this);
 }
-}
-console.log("putaaaaaaaaaaaaaaaaaa")
+
+
+// var checkbox = document.querySelectorAll("input[type=checkbox]");
+
+// console.log(checkbox);
+
+// checkbox.addEventListener('change', function() {
+//     if (this.checked) {
+//         console.log("Checkbox is checked..");
+//     } else {
+//         console.log("Checkbox is not checked..");
+//     }
+// });
+
