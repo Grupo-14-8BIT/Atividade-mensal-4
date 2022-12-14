@@ -315,10 +315,6 @@ input[type=checkbox]:checked~label i.fa:before {
     left: -30px;
 }
 
-.hide {
-    display: none;
-}
-
 .botao_carregar {
     font-size: 800;
     font-weight: bold;
@@ -355,20 +351,24 @@ input[type=checkbox]:checked~label i.fa:before {
   }
   
   .card {
-    border: 1px solid black;
-    background-color: white;
-    padding: .5rem;
+    margin-top: 3%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
   }
-  
-  .card > .header {
-    margin-bottom: .25rem;
-  }
-  
-  .card > .body {
-    font-size: .8rem;
-    color: #777;
-  }
+
+.card img {
+    border-radius: 10%;
+    width: 40vh;
+}
   
   .hide {
     display: none;
+  }
+
+  .header{
+      margin-top: 3%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
   }
