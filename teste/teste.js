@@ -92,8 +92,9 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
                     jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-
+                }
             }).catch(err => console.error(err));
+            
     }
 }
 
