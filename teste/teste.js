@@ -3,15 +3,13 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.getElementById("search_id");
 let games;
 let users = [];
-let favor;
-var checkboxes;
 
 
 searchInput.addEventListener("input", habib => {
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
     if (value == "") {
-        carregar_jogos(categoria, plataforma);
+        carregar_jogos("home", "all");
     }
     if (users != '') {
         users.forEach(user => {
@@ -28,7 +26,7 @@ searchInput.addEventListener("input", habib => {
                     header.innerHTML = `
                                             <div class="imagem-jogo">
                                                 <a href="${user.game_url}" target="blank">
-                                                    <img src="${user.thumbnail}" alt="anal">
+                                                    <img class="jogo" src="${user.thumbnail}" alt="anal">
                                                 </a><input type="checkbox" id="cm_star-empty${user.id}" >  
                                                 <label for="cm_star-empty${user.id}">
                                                     <i class="fa">
@@ -56,9 +54,6 @@ let jogos;
 let lista_jogos = 10;
 let destaque;
 let carregar;
-// variaveis de favorito
-let checked;
-let favoritos = [];
 // headers da requisicao
 const options = {
     method: 'GET',
@@ -77,37 +72,29 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><p>' + response[0].short_description + '</p><p>' + response[0].title + '</div>';
+                destaque.innerHTML = '<div class="imagem_game"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div id="' + response[i].id + '" class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
-
-    } else {
-
-        fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
+            
+        } else {
+            
+            fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
                 destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
-
-
-                    jogos.innerHTML += '<div id="' + response[i].id + '" class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')"  name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-
-
                     jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-
                 }
             }).catch(err => console.error(err));
-
+            
     }
-
-
 }
 
 
@@ -123,13 +110,13 @@ function carregar_mais() {
 
 // funcao para selecionar a categoria
 function selecionar_categoria(cat) {
-
+    
     categoria = cat.id;
     carregar_jogos(categoria, plataforma);
-
+    
     for (var i = 0; i <= categorias.length; i++) {
         if (cat == categorias[i]) {
-            cat.style.backgroundColor = "red";
+            cat.style.backgroundColor = "#3c015e";
         } else { categorias[i].style.backgroundColor = "rgba(60, 1, 74, 0.585)"; }
     }
 }
@@ -137,31 +124,23 @@ function selecionar_categoria(cat) {
 // funcao para selecionar plataforma 
 
 function plataformas(plat) {
-
-    favor = document.getElementById("favoritos");
-
-
+    
     plataforma = plat;
-
+    
     if (plataforma == "all") {
         all.style.color = "blueviolet";
         pc.style.color = "white";
         browser.style.color = "white"
-        favor.style.color = "white"
     }
     if (plataforma == "pc") {
         pc.style.color = "blueviolet";
         browser.style.color = "white"
         all.style.color = "white";
-        favor.style.color = "white"
-
     }
     if (plataforma == "browser") {
-        browser.style.color = "blueviolet";
+        browser.style.color = "blueviolet"
         all.style.color = "white";
         pc.style.color = "white";
-        favor.style.color = "white"
-
     }
     carregar_jogos(categoria, plataforma);
 }
@@ -196,55 +175,21 @@ selecionar_categoria(home);
 carregar_jogos(categoria, plataforma);
 
 
-// FAVORITOS 
-
-
-function fav(id) {
-    //checked = document.querySelectorAll('input:checked');
-    let item = document.getElementById("cm_star-empty" + id);
-    if (item.checked == true) {
-        localStorage.setItem(id, 1);
-    } else {
-        localStorage.removeItem(id);
-    }
+// FAVORITOS
+function fav() {
+    checked = document.querySelectorAll('input:checked');
+    console.log(this);
 }
 
-function f() {
-    favor = document.getElementById("favoritos");
 
-    favor.style.color = "blueviolet";
-    browser.style.color = "white";
-    all.style.color = "white";
-    pc.style.color = "white";
-    destaque.innerHTML = "";
-    jogos.innerHTML = '';
+// var checkbox = document.querySelectorAll("input[type=checkbox]");
 
+// console.log(checkbox);
 
-    for (i = 0; i < localStorage.length; i++) {
-        fetch('https://free-to-play-games-database.p.rapidapi.com/api/game?id=' + localStorage.key(i), options)
-            .then(response => response.json())
-            .then(response => {
-                jogos.innerHTML += '<div id="' + response.id + '" class="jogo"><div class="imagem-jogo"><a href="' + response.game_url + '" target="blank"><img src="' + response.thumbnail + '" alt="anal"> </a><input onclick="fav(' + response.id + ')"  name="' + response.id + '" type="checkbox" id="cm_star-empty' + response.id + '" >  <label for="cm_star-empty' + response.id + '"><i class="fa"></i></label></div><p>' + response.title + '</p></div>';
-            }).catch(err => console.error(err));
-    }
-
-}
-
-const newLocal = favoritos = [];
-// ativar as cehckbox salvas
-
-function check() {
-    checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-    for (var i = 0; i < localStorage.length; i++) {
-        favoritos.push(localStorage.key(i));
-    }
-    console.log(favoritos);
-    for (i = 0; i < checkboxes.length; i++) {
-        if (favoritos.includes(checkboxes[i].tagName)) {
-            checkboxes[i].checked = true;
-        } else {}
-
-    }
-
-}
+// checkbox.addEventListener('change', function() {
+//     if (this.checked) {
+//         console.log("Checkbox is checked..");
+//     } else {
+//         console.log("Checkbox is not checked..");
+//     }
+// });
