@@ -147,6 +147,7 @@ function selecionar_categoria(cat) {
 }
 
 // funcao para selecionar plataforma 
+let favor;
 
 function plataformas(plat) {
     favor = document.getElementById("favoritos");
