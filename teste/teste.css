@@ -25,10 +25,9 @@ body {
 }
 
 .conteudo {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    
+display: flex;
+align-items: center;
+gap: 30px;
 }
 
 header {
@@ -264,7 +263,7 @@ nav ul li div {
     position: relative;
 }
 
-.mundo-icon {
+.mundo-icon{
     font-size: 20px;
 }
 
@@ -406,8 +405,8 @@ input {
 }
   
   .hide {
-      display: none;
-    }
+    display: none;
+  }
     
     .header{
         margin-top: 3%;
@@ -475,5 +474,10 @@ font-palette: --Grays;
     10px 0 40px #0ff;
     transition: .5s;
     transform: translateY(-10px);
+}
+
+p{
+    color: aliceblue;
+    font-family: 'Rocher';
 }
 

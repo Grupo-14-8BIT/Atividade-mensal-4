@@ -81,10 +81,10 @@ function carregar_jogos(categoria, plataforma) {
 
                 }
             }).catch(err => console.error(err));
-            
-        } else {
-            
-            fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
+
+    } else {
+
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma + '&category=' + categoria + '&sort-by=release-date', options)
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
@@ -94,11 +94,9 @@ function carregar_jogos(categoria, plataforma) {
                     jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
                 }
             }).catch(err => console.error(err));
-            
+
     }
 }
-
-
 
 function favoritar() {
     let favorito = document.getElementById("")
@@ -111,10 +109,10 @@ function carregar_mais() {
 
 // funcao para selecionar a categoria
 function selecionar_categoria(cat) {
-    
+
     categoria = cat.id;
     carregar_jogos(categoria, plataforma);
-    
+
     for (var i = 0; i <= categorias.length; i++) {
         if (cat == categorias[i]) {
             cat.style.backgroundColor = "#3c015e";
@@ -125,9 +123,9 @@ function selecionar_categoria(cat) {
 // funcao para selecionar plataforma 
 
 function plataformas(plat) {
-    
+
     plataforma = plat;
-    
+
     if (plataforma == "all") {
         all.style.color = "blueviolet";
         pc.style.color = "white";
@@ -171,22 +169,49 @@ carregar = document.getElementById("carregar");
 jogos = document.getElementById("jogos");
 destaque = document.getElementById("destaque");
 
-plataformas("all")
+plataformas("all");
 selecionar_categoria(home);
 carregar_jogos(categoria, plataforma);
-
 
 // FAVORITOS
 function fav() {
     checked = document.querySelectorAll('input:checked');
     console.log(this);
+
+
+
+    // var checkbox = document.querySelectorAll("input[type=checkbox]");
+
+    // console.log(checkbox);
+
+    for (i = 0; i < localStorage.length; i++) {
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/game?id=' + localStorage.key(i), options)
+            .then(response => response.json())
+            .then(response => {
+                jogos.innerHTML += '<div id="' + response.id + '" class="jogo"><div class="imagem-jogo"><a href="' + response.game_url + '" target="blank"><img src="' + response.thumbnail + '" alt="anal"> </a><input onclick="fav(' + response.id + ')"  name="' + response.id + '" type="checkbox" id="cm_star-empty' + response.id + '" >  <label for="cm_star-empty' + response.id + '"><i class="fa"></i></label></div><p>' + response.title + '</p></div>';
+            }).catch(err => console.error(err));
+    }
+
 }
 
+const newLocal = favoritos = [];
+// ativar as cehckbox salvas
 
-// var checkbox = document.querySelectorAll("input[type=checkbox]");
+// function check() {
+//     checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-// console.log(checkbox);
+//     for (var i = 0; i < localStorage.length; i++) {
+//         favoritos.push(localStorage.key(i));
+//     }
+//     console.log(favoritos);
+//     for (i = 0; i < checkboxes.length; i++) {
+//         if (favoritos.includes(checkboxes[i].tagName)) {
+//             checkboxes[i].checked = true;
+//         } else {}
 
+//     }
+
+// }
 // checkbox.addEventListener('change', function() {
 //     if (this.checked) {
 //         console.log("Checkbox is checked..");
