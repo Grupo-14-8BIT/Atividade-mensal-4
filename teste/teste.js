@@ -71,9 +71,8 @@ function carregar_jogos(categoria, plataforma) {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma, options)
             .then(response => response.json())
             .then(response => {
-
                 console.log(response[0]);
-                destaque.innerHTML = '<video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="iamgem grande" type="video/webm"></video>';
+                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
@@ -88,7 +87,7 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="iamgem grande" type="video/webm"></video>';
+                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
                     jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
@@ -98,6 +97,8 @@ function carregar_jogos(categoria, plataforma) {
     }
 }
 
+
+
 function favoritar() {
     let favorito = document.getElementById("")
 }
@@ -105,7 +106,6 @@ function favoritar() {
 function carregar_mais() {
     lista_jogos += 10;
     carregar_jogos(categoria, plataforma);
-    
 }
 
 // funcao para selecionar a categoria
@@ -144,7 +144,6 @@ function plataformas(plat) {
     }
     carregar_jogos(categoria, plataforma);
 }
-
 
 // coletando os IDs das categorias para jogos
 const home = document.getElementById('home');
