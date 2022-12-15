@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onchange="check()" onload="check()">
 
 <head>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 481cb8c3ab36599771ccf36846780474874682e6
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatiblse" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>document</title>
     <!-- CSS only -->
+    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="teste.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
@@ -22,7 +27,7 @@
                 <li onclick="plataformas('pc')"><a id="pc" href="#">Pc</a></li>
                 <li onclick="plataformas('browser')"><a id="browser" href="#">Browser</a></li>
                 <li onclick="plataformas('all')"><a id="all" href="#">All</a></li>
-                <li><a href="#">Favoritos</a></li>
+                <li><a onclick="f()" id="favoritos" href="#">Favoritos</a></li>
             </ul>
         </div>
 
@@ -42,22 +47,22 @@
             </li>
             <li id="pvp" onclick="selecionar_categoria(pvp);">
                 <div class="pvp-icon">
-                    <img src="../pvp.png" alt="">
+                    <img class="pvp" src="../pvp.png" alt="">
                 </div>
             </li>
             <li id="mmofps" onclick="selecionar_categoria(mmofps);">
                 <div class="mmofps-icon">
-                    <img src="../mmofps.png" alt="">
+                    <img class="mmofps" src="../mmofps.png" alt="">
                 </div>
             </li>
             <li id="survival" onclick="selecionar_categoria(survival);">
                 <div class="survival-icon">
-                    <img src="../survival.png" alt="">
+                    <img class="survival" src="../survival.png" alt="">
                 </div>
             </li>
             <li id="card" onclick="selecionar_categoria(card);">
                 <div class="card-icon">
-                    <img src="../card.png" alt="">
+                    <img class="carta" src="../card.png" alt="">
                 </div>
             </li>
             <li id="fighting" onclick="selecionar_categoria(fighting);">
@@ -81,7 +86,7 @@
     <section id="games">
 
         <div class="center">
-    
+
             <div id="destaque">
             </div>
             <div id="jogos" class="jogos">
@@ -93,9 +98,11 @@
             </div>
 
             <div class="user-cards" data-user-cards-container></div>
-            
+
+
             <button id="carregar" class="botao_carregar" onclick=" carregar_mais()">Carregar Mais</button>
-            
+
+
         </div>
     </section>
 </body>
@@ -103,4 +110,3 @@
 <script src="teste.js"></script>
 
 </html>
-

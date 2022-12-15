@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let games;
 let list_games = 372;
 let i;
@@ -67,3 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+=======
+>>>>>>> 481cb8c3ab36599771ccf36846780474874682e6

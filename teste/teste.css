@@ -1,4 +1,15 @@
 @import url(//db.onlinewebfonts.com/c/bec3644fbb99759baf1d9dc9df1f187e?family=LomoCopy+LT+Std+Regular);
+
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+@font-palette-values --Grays {
+    font-family: Rocher;
+    base-palette: 9;
+    }
+
 *,
 *:before,
 *:after {
@@ -11,7 +22,6 @@
 
 body {
     background-image: url(../Background.png);
-
 }
 
 .conteudo {
@@ -19,7 +29,6 @@ display: flex;
 align-items: center;
 gap: 30px;
 }
-
 
 header {
     position: absolute;
@@ -38,20 +47,30 @@ header {
 header li {
     color: rgb(255, 255, 255);
     font-family: "LomoCopy LT Std Regular";
-    font-size: 2%;
+    font-size: 2vh;
     list-style: none;
+    background-image: linear-gradient(#330150, rgb(87, 0, 99));
+    background-size: 100% 0px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+     transition: background-size .7s, background-position .5s ease-in-out;
 }
 
 header .navigation {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 4vh;
+    gap: 7vh;
 }
+
+header li:hover {
+    background-size: 100% 100%;
+    background-position: 0% 100%;
+    transition: background-position .7s, background-size .5s ease-in-out;
+    filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
+  }
 
 header .navigation li {
     list-style: none;
-    margin: 0 10px;
 }
 
 header .navigation li a {
@@ -161,6 +180,7 @@ nav ul li:nth-child(1):after {
     font-weight: 800;
     line-height: 88px;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(2):after {
@@ -168,20 +188,25 @@ nav ul li:nth-child(2):after {
     font-weight: 800;
     line-height: 88px;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(3):after {
     content: "MMOFPS";
+    font-size: 0.7em;
     line-height: 88px;
     font-weight: 800;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(4):after {
     content: "SURVIVAL";
+    font-size: 0.7em;
     line-height: 88px;
     font-weight: 800;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(5):after {
@@ -189,28 +214,34 @@ nav ul li:nth-child(5):after {
     line-height: 88px;
     font-weight: 800;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(6):after {
     content: "FIGHTING";
+    font-size: 0.7em;
     line-height: 88px;
     font-weight: 800;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(7):after {
     content: "SHOOTING";
+    font-size: 0.7em;
     line-height: 88px;
     font-weight: 800;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:nth-child(8):after {
     content: "OPEN-WORLD";
-    font-size: 12px;
+    font-size: 0.6em;
     font-weight: 800;
     line-height: 88px;
     width: 100px;
+    font-family: "LomoCopy LT Std Regular";
 }
 
 nav ul li:hover {
@@ -236,39 +267,50 @@ nav ul li div {
     font-size: 20px;
 }
 
-.mundo{
-    width: 60%;
+.mundo {
+    width: 35px;
     filter: invert();
 }
 
+.pvp{
+    width: 25px;
+    filter: invert();
+}
+
+.mmofps{
+    width: 35px;
+    filter: invert();
+}
+
+.survival{
+    width: 35px;
+    filter: invert();
+}
+
+.carta{
+    width: 35px;
+    filter: invert();
+}
 
 /* =========================================== */
 
 
-.img_grande {
-    margin-top: 90px;
-    width: 85vw;
-    height: 46vh;
-    border-radius: 30px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
-}
-
 input[type=checkbox] {
     margin: 0px;
     display: none;
+    transition: 0.5s;
 }
 
 label i.fa:before {
     content: '\f005';
     color: #CCC;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 input[type=checkbox]:checked~label i.fa:before {
     color: #FC0;
+    transition: 0.5s;
 }
 
 .search input:focus {
@@ -277,20 +319,20 @@ input[type=checkbox]:checked~label i.fa:before {
 
 .jogos {
     color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    font-family: 'Rocher';
     font-weight: bold;
-    gap: 6vh;
+    gap: 4vh;
     align-items: center;
     justify-content: center;
     font-size: 1vw;
     filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
 }
 
-.jogo img:hover{
+/* .jogo img:hover {
     width: 43vh;
-}
+} */
 
 .jogo {
     margin-top: 3%;
@@ -315,10 +357,6 @@ input[type=checkbox]:checked~label i.fa:before {
     left: -30px;
 }
 
-.hide {
-    display: none;
-}
-
 .botao_carregar {
     font-size: 800;
     font-weight: bold;
@@ -333,42 +371,112 @@ input[type=checkbox]:checked~label i.fa:before {
 .center {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
 .search {
     display: flex;
     flex-direction: column;
-    gap: .25rem;
-  }
-  
-  input {
+}
+
+input {
     font-size: 1rem;
-  }
-  
-  .user-cards {
+    font-weight: bold;
+    font-family:"LomoCopy LT Std Regular";
+}
+
+.user-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: .25rem;
     margin-top: 1rem;
-  }
-  
-  .card {
-    border: 1px solid black;
-    background-color: white;
-    padding: .5rem;
-  }
-  
-  .card > .header {
-    margin-bottom: .25rem;
-  }
-  
-  .card > .body {
-    font-size: .8rem;
-    color: #777;
-  }
+}
+
+.card {
+    margin-top: 3%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card img {
+    border-radius: 10%;
+    width: 40vh;
+}
   
   .hide {
     display: none;
   }
+    
+    .header{
+        margin-top: 3%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .imagen_game{
+        background-color: #CCC;
+        padding: 20px 20px 20px 20px;
+        
+    }
+    
+    
+    video{
+        width: 36vw;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
+    }
+    
+    .imagem_game{
+        display: inline-flex;
+        background-color: #240138;
+        padding: 1.6vw 0vh 0vh 3vh;
+        width: 89vw;
+        height: 23vw;
+        border-radius: 30px;
+        margin-top: 100px;
+        margin-bottom: 25px;
+    }
+
+    .imagen_game_center{
+        display:flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.5em;
+        color: aliceblue;
+        padding-left: 4vw;
+        font-family: 'Rocher';
+        filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
+    }
+
+
+.imagen_game_center {
+font-palette: --Grays;
+}
+
+.jogos{
+    font-palette: --Grays;
+}
+
+.jogo img:hover{
+    transform: translateY(0);
+    box-shadow:
+    inset 0 0 20px whitesmoke,
+    inset 20px 0 40px #f0f,
+    inset -20px 0 40px #0ff,
+    inset 20px 0 100px #f0f,
+    inset -20px 0 100px #0ff,
+    0 0 30px #fff,
+    -10px 0 40px #f0f,
+    10px 0 40px #0ff;
+    transition: .5s;
+    transform: translateY(-10px);
+}
+
+.jogo{
+    
+}
+
