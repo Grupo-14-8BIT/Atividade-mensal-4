@@ -178,8 +178,6 @@ function fav() {
     checked = document.querySelectorAll('input:checked');
     console.log(this);
 
-
-
     // var checkbox = document.querySelectorAll("input[type=checkbox]");
 
     // console.log(checkbox);
