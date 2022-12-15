@@ -77,7 +77,7 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></div>';
+                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><p>' + response[0].short_description + '</p><p>' + response[0].title + '</div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
