@@ -461,6 +461,10 @@ font-palette: --Grays;
     font-palette: --Grays;
 }
 
+.header{
+    font-palette: --Grays;
+}
+
 .jogo img:hover{
     transform: translateY(0);
     box-shadow:
@@ -476,7 +480,7 @@ font-palette: --Grays;
     transform: translateY(-10px);
 }
 
-.jogo{
-    
+.header{
+    color: aliceblue;
+    font-family: 'Rocher';
 }
-
