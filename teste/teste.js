@@ -48,13 +48,6 @@ if (users != '') {
 
 });
 
-function remove(){
-    searchInput.value = "";
-    carregar_jogos("home", "all");
-    users.forEach(user =>{
-        user.element.classList.toggle("hide");
-    })
-}
 
 // variaveis para exibir os jogos
 let plataforma;
