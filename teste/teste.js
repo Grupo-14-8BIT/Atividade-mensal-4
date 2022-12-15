@@ -97,8 +97,6 @@ function carregar_jogos(categoria, plataforma) {
     }
 }
 
-
-
 function favoritar() {
     let favorito = document.getElementById("")
 }

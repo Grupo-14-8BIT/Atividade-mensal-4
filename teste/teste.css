@@ -476,7 +476,7 @@ font-palette: --Grays;
     transform: translateY(-10px);
 }
 
-.jogo{
-    
+p{
+    color: aliceblue;
+    font-family: 'Rocher';
 }
-
