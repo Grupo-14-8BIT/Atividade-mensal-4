@@ -3,12 +3,14 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.getElementById("search_id");
 let games;
 let users = [];
+let favor;
+var checkboxes;
 
 searchInput.addEventListener("input", habib => {
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
     if (value == "") {
-        carregar_jogos("home", "all");
+        carregar_jogos(categoria, plataforma);
     }
     if (users != '') {
         users.forEach(user => {
@@ -53,6 +55,9 @@ let jogos;
 let lista_jogos = 10;
 let destaque;
 let carregar;
+// variaveis de favorito
+let checked;
+let favoritos = [];
 // headers da requisicao
 const options = {
     method: 'GET',
@@ -75,7 +80,7 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div id="' + response[i].id + '" class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
@@ -90,11 +95,13 @@ function carregar_jogos(categoria, plataforma) {
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
 
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav()" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    jogos.innerHTML += '<div id="' + response[i].id + '" class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')"  name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
 
                 }
             }).catch(err => console.error(err));
     }
+
+
 }
 
 function favoritar() {
@@ -123,6 +130,8 @@ function selecionar_categoria(cat) {
 // funcao para selecionar plataforma 
 
 function plataformas(plat) {
+    favor = document.getElementById("favoritos");
+
 
     plataforma = plat;
 
@@ -130,16 +139,21 @@ function plataformas(plat) {
         all.style.color = "blueviolet";
         pc.style.color = "white";
         browser.style.color = "white"
+        favor.style.color = "white"
     }
     if (plataforma == "pc") {
         pc.style.color = "blueviolet";
         browser.style.color = "white"
         all.style.color = "white";
+        favor.style.color = "white"
+
     }
     if (plataforma == "browser") {
-        browser.style.color = "blueviolet"
+        browser.style.color = "blueviolet";
         all.style.color = "white";
         pc.style.color = "white";
+        favor.style.color = "white"
+
     }
     carregar_jogos(categoria, plataforma);
 }
@@ -174,25 +188,54 @@ plataformas("all")
 selecionar_categoria(home);
 carregar_jogos(categoria, plataforma);
 
-// FAVORITOS
+// FAVORITOS 
 
 
-var checked;
-
-function fav() {
-    checked = document.querySelectorAll('input:checked');
-    console.log(this);
+function fav(id) {
+    //checked = document.querySelectorAll('input:checked');
+    let item = document.getElementById("cm_star-empty" + id);
+    if (item.checked == true) {
+        localStorage.setItem(id, 1);
+    } else {
+        localStorage.removeItem(id);
+    }
 }
 
+function f() {
+    favor = document.getElementById("favoritos");
 
-// var checkbox = document.querySelectorAll("input[type=checkbox]");
+    favor.style.color = "blueviolet";
+    browser.style.color = "white";
+    all.style.color = "white";
+    pc.style.color = "white";
+    destaque.innerHTML = "";
+    jogos.innerHTML = '';
 
-// console.log(checkbox);
 
-// checkbox.addEventListener('change', function() {
-//     if (this.checked) {
-//         console.log("Checkbox is checked..");
-//     } else {
-//         console.log("Checkbox is not checked..");
-//     }
-// });
+    for (i = 0; i < localStorage.length; i++) {
+        fetch('https://free-to-play-games-database.p.rapidapi.com/api/game?id=' + localStorage.key(i), options)
+            .then(response => response.json())
+            .then(response => {
+                jogos.innerHTML += '<div id="' + response.id + '" class="jogo"><div class="imagem-jogo"><a href="' + response.game_url + '" target="blank"><img src="' + response.thumbnail + '" alt="anal"> </a><input onclick="fav(' + response.id + ')"  name="' + response.id + '" type="checkbox" id="cm_star-empty' + response.id + '" >  <label for="cm_star-empty' + response.id + '"><i class="fa"></i></label></div><p>' + response.title + '</p></div>';
+            }).catch(err => console.error(err));
+    }
+}
+
+const newLocal = favoritos = [];
+// ativar as cehckbox salvas
+
+function check() {
+    checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    for (var i = 0; i < localStorage.length; i++) {
+        favoritos.push(localStorage.key(i));
+    }
+    console.log(favoritos);
+    for (i = 0; i < checkboxes.length; i++) {
+        if (favoritos.includes(checkboxes[i].tagName)) {
+            checkboxes[i].checked = true;
+        } else {}
+
+    }
+
+}
