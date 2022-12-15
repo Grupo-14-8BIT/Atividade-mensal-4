@@ -58,7 +58,7 @@ searchInput.addEventListener("input", (e) => {
     })
         
     //});
-}).catch(err => console.error(err));
+}).catch(err => console.error("err"));
 
 document.addEventListener("DOMContentLoaded", () => {
 

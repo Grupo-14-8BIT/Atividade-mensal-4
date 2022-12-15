@@ -38,4 +38,4 @@ fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
       userCardContainer.append(card);
       return { title: user.title, thumbnail: user.thumbnail,game_url: user.game_url ,element: card }
     })
-  });
+  }).catch(err => console.error(err));
