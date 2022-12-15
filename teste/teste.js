@@ -1,18 +1,13 @@
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.getElementById("search_id");
-const lol = "";
 let games;
 let users = [];
 
 searchInput.addEventListener("input", habib => {
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
-    // function remove(){
-    //     lol = document.getElementById("search_id").innerText;
-    //     value="";
-    //     userCardContainer.removeChild(card);
-    // }
+
 if (users != '') {
         users.forEach(user => {
             const isVisible = user.title.toLowerCase().includes(value);
@@ -53,7 +48,13 @@ if (users != '') {
 
 });
 
-
+function remove(){
+    searchInput.value = "";
+    carregar_jogos("home", "all");
+    users.forEach(user =>{
+        user.element.classList.toggle("hide");
+    })
+}
 
 // variaveis para exibir os jogos
 let plataforma;
