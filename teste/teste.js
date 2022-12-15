@@ -6,7 +6,6 @@ let games;
 let users = [];
 
 searchInput.addEventListener("input", habib => {
-
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
     // function remove(){
