@@ -18,11 +18,13 @@ if (users != '') {
         users.forEach(user => {
             const isVisible = user.title.toLowerCase().includes(value);
             user.element.classList.toggle("hide", !isVisible);
-            if (value == "") {
-                carregar_jogos("home", "all");
-                user.element.classList.toggle("hide");
-            }
         })
+        if (value == ""){
+            carregar_jogos("home", "all");
+            users.forEach(user =>{
+                user.element.classList.toggle("hide");
+            })
+        }
     } else {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
             .then(response => response.json())
