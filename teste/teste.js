@@ -233,18 +233,18 @@ function f() {
 const newLocal = favoritos = [];
 // ativar as cehckbox salvas
 
-function check() {
-    checkboxes = document.querySelectorAll('input[type="checkbox"]');
+// function check() {
+//     checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    for (var i = 0; i < localStorage.length; i++) {
-        favoritos.push(localStorage.key(i));
-    }
-    console.log(favoritos);
-    for (i = 0; i < checkboxes.length; i++) {
-        if (favoritos.includes(checkboxes[i].tagName)) {
-            checkboxes[i].checked = true;
-        } else {}
+//     for (var i = 0; i < localStorage.length; i++) {
+//         favoritos.push(localStorage.key(i));
+//     }
+//     console.log(favoritos);
+//     for (i = 0; i < checkboxes.length; i++) {
+//         if (favoritos.includes(checkboxes[i].tagName)) {
+//             checkboxes[i].checked = true;
+//         } else {}
 
-    }
+//     }
 
-}
+// }
