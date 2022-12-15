@@ -73,6 +73,7 @@ const options = {
 //funcao para carregar os jogos
 function carregar_jogos(categoria, plataforma) {
 
+    document.getElementById("carregar").style.visibility  = "visible";
     if (categoria == "home") {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma, options)
             .then(response => response.json())
@@ -209,7 +210,7 @@ function f() {
     pc.style.color = "white";
     destaque.innerHTML = "";
     jogos.innerHTML = '';
-    document.getElementById("carregar").style.display = "none";
+    document.getElementById("carregar").style.visibility  = "hidden";
 
 
 
