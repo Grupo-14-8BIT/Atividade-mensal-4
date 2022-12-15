@@ -318,7 +318,7 @@ input[type=checkbox]:checked~label i.fa:before {
 }
 
 .jogos {
-    margin-top:10vw;
+    margin-top:4vw;
     color: #fff;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -388,8 +388,7 @@ input {
 .user-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: .25rem;
-    /* margin-top: 1rem; */
+    gap: 3vw;
 }
 
 .card {
