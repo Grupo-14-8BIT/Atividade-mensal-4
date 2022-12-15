@@ -318,12 +318,13 @@ input[type=checkbox]:checked~label i.fa:before {
 }
 
 .jogos {
+    margin-top:10vw;
     color: #fff;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     font-family: 'Rocher';
     font-weight: bold;
-    gap: 4vh;
+    gap: 8vh;
     align-items: center;
     justify-content: center;
     font-size: 1vw;
@@ -335,14 +336,13 @@ input[type=checkbox]:checked~label i.fa:before {
 } */
 
 .jogo {
-    margin-top: 3%;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
 }
 
 .jogo img {
-    border-radius: 10%;
+    border-radius: 10px;
     width: 40vh;
 }
 
@@ -389,13 +389,11 @@ input {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: .25rem;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 
 .card {
-    margin-top: 3%;
     display: inline-flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -409,7 +407,6 @@ display: none;
 }
 
 .header{
-    margin-top: 3%;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -425,19 +422,17 @@ display: none;
 video{
     width: 36vw;
     border-radius: 30px;
-    margin-bottom: 20px;
     filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
 }
     
 .imagem_game{
     display: inline-flex;
     background-color: #240138;
-    padding: 1.6vw 0vh 0vh 3vh;
-    width: 89vw;
+    padding: 1.6vw 0vh 3vh 3vh;
+    width: 85vw;
     height: 23vw;
     border-radius: 30px;
     margin-top: 100px;
-    margin-bottom: 25px;
 }
 
 .imagen_game_center{
@@ -445,7 +440,7 @@ video{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 3vh;
     color: aliceblue;
     padding-left: 4vw;
     font-family: 'Rocher';
@@ -453,15 +448,29 @@ video{
 }
 
 
-.imagen_game_center {
-font-palette: --Grays;
-}
 
 .jogos{
     font-palette: --Grays;
 }
 
 .header{
+    font-palette: --Grays;
+}
+
+.description{
+    font-family: 'Rocher';
+}
+
+.description{
+
+}
+
+.title{
+    font-family: 'Rocher';
+    font-size: 2vw;
+}
+
+.title{
     font-palette: --Grays;
 }
 
