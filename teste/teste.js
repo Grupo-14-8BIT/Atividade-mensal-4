@@ -27,7 +27,8 @@ searchInput.addEventListener("input", habib => {
                                             <div class="imagem-jogo">
                                                 <a href="${user.game_url}" target="blank">
                                                     <img class="jogo" src="${user.thumbnail}" alt="anal">
-                                                </a><input type="checkbox" id="cm_star-empty${user.id}" >  
+                                                </a>
+                                                <input type="checkbox" id="cm_star-empty${user.id}" >  
                                                 <label for="cm_star-empty${user.id}">
                                                     <i class="fa">
 
