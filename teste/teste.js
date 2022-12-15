@@ -88,8 +88,12 @@ function carregar_jogos(categoria, plataforma) {
                 destaque.innerHTML = '<div class="imagem_game"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">'+response[0].title+'</p><p class="description">'+response[0].short_description+'</p></div></div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
-
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    if(response[i].id in localStorage) {
+                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" checked id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    }else{
+                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    }
+                    
 
                 }
                 
@@ -220,7 +224,7 @@ function f() {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/game?id=' + localStorage.key(i), options)
             .then(response => response.json())
             .then(response => {
-                jogos.innerHTML += '<div id="' + response.id + '" class="jogo"><div class="imagem-jogo"><a href="' + response.game_url + '" target="blank"><img src="' + response.thumbnail + '" alt="anal"> </a><input onclick="fav(' + response.id + ')"  name="' + response.id + '" type="checkbox" id="cm_star-empty' + response.id + '" >  <label for="cm_star-empty' + response.id + '"><i class="fa"></i></label></div><p>' + response.title + '</p></div>';
+                jogos.innerHTML += '<div id="' + response.id + '" class="jogo"><div class="imagem-jogo"><a href="' + response.game_url + '" target="blank"><img src="' + response.thumbnail + '" alt="anal"> </a><input checked onclick="fav(' + response.id + ')"  name="' + response.id + '" type="checkbox" id="cm_star-empty' + response.id + '" >  <label for="cm_star-empty' + response.id + '"><i class="fa"></i></label></div><p>' + response.title + '</p></div>';
             }).catch(err => console.error(err));
     }
 }
