@@ -315,7 +315,9 @@ input[type=checkbox]:checked~label i.fa:before {
     color: #FC0;
     transition: 0.5s;
 }
-
+.estrelinha{
+    display: flex;
+}
 .search input:focus {
     background-color: #350154;
 }
