@@ -403,54 +403,54 @@ input {
     border-radius: 10%;
     width: 40vh;
 }
-  
-  .hide {
-    display: none;
-  }
-    
-    .header{
-        margin-top: 3%;
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .imagen_game{
-        background-color: #CCC;
-        padding: 20px 20px 20px 20px;
-        
-    }
-    
-    
-    video{
-        width: 36vw;
-        border-radius: 30px;
-        margin-bottom: 20px;
-        filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
-    }
-    
-    .imagem_game{
-        display: inline-flex;
-        background-color: #240138;
-        padding: 1.6vw 0vh 0vh 3vh;
-        width: 89vw;
-        height: 23vw;
-        border-radius: 30px;
-        margin-top: 100px;
-        margin-bottom: 25px;
-    }
 
-    .imagen_game_center{
-        display:flex;
-        flex-direction: column-reverse;
-        justify-content: flex-end;
-        align-items: center;
-        font-size: 1.5em;
-        color: aliceblue;
-        padding-left: 4vw;
-        font-family: 'Rocher';
-        filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
-    }
+.hide {
+display: none;
+}
+
+.header{
+    margin-top: 3%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagen_game{
+    background-color: #CCC;
+    padding: 20px 20px 20px 20px;
+    
+}
+
+
+video{
+    width: 36vw;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
+}
+    
+.imagem_game{
+    display: inline-flex;
+    background-color: #240138;
+    padding: 1.6vw 0vh 0vh 3vh;
+    width: 89vw;
+    height: 23vw;
+    border-radius: 30px;
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+.imagen_game_center{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5em;
+    color: aliceblue;
+    padding-left: 4vw;
+    font-family: 'Rocher';
+    filter: drop-shadow(16px 16px 20px rgba(62, 0, 95, 0.755));
+}
 
 
 .imagen_game_center {
