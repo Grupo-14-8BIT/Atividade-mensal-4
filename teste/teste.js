@@ -1,20 +1,27 @@
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.getElementById("search_id");
+const lol = "";
 let games;
 let users = [];
 
-
 searchInput.addEventListener("input", habib => {
+
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
-    if (value == "") {
-        carregar_jogos("home", "all");
-    }
-    if (users != '') {
+    // function remove(){
+    //     lol = document.getElementById("search_id").innerText;
+    //     value="";
+    //     userCardContainer.removeChild(card);
+    // }
+if (users != '') {
         users.forEach(user => {
             const isVisible = user.title.toLowerCase().includes(value);
             user.element.classList.toggle("hide", !isVisible);
+            if (value == "") {
+                carregar_jogos("home", "all");
+                user.element.classList.toggle("hide");
+            }
         })
     } else {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
@@ -23,16 +30,13 @@ searchInput.addEventListener("input", habib => {
                 users = data.map(user => {
                     const card = userCardTemplate.content.cloneNode(true).children[0];
                     const header = card.querySelector("[data-header]");
-                    header.innerHTML = `
-                                            <div class="imagem-jogo">
+                    header.innerHTML = `<div class="imagem-jogo">
                                                 <a href="${user.game_url}" target="blank">
                                                     <img class="jogo" src="${user.thumbnail}" alt="anal">
                                                 </a>
                                                 <input type="checkbox" id="cm_star-empty${user.id}" >  
                                                 <label for="cm_star-empty${user.id}">
-                                                    <i class="fa">
-
-                                                    </i>
+                                                    <i class="fa"></i>
                                                 </label>
                                             </div>
                                             <p>${user.title}</p>`
@@ -47,6 +51,8 @@ searchInput.addEventListener("input", habib => {
     }
 
 });
+
+
 
 // variaveis para exibir os jogos
 let plataforma;
