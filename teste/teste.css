@@ -317,6 +317,8 @@ input[type=checkbox]:checked~label i.fa:before {
 }
 .estrelinha{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .search input:focus {
     background-color: #350154;
@@ -462,10 +464,6 @@ video{
     font-family: 'Rocher';
 }
 
-.description{
-
-}
-
 .title{
     font-family: 'Rocher';
     font-size: 2vw;
@@ -493,4 +491,9 @@ video{
 .header{
     color: aliceblue;
     font-family: 'Rocher';
+}
+
+.imagen_game_center div {
+    display: flex;
+    flex-direction: column;
 }
