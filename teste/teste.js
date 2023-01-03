@@ -8,14 +8,14 @@ searchInput.addEventListener("input", habib => {
     const value = habib.target.value.toLowerCase();
     jogos.innerHTML = '';
 
-if (users != '') {
+    if (users != '') {
         users.forEach(user => {
             const isVisible = user.title.toLowerCase().includes(value);
             user.element.classList.toggle("hide", !isVisible);
         })
-        if (value == ""){
+        if (value == "") {
             carregar_jogos("home", "all");
-            users.forEach(user =>{
+            users.forEach(user => {
                 user.element.classList.toggle("hide");
             })
         }
@@ -48,10 +48,10 @@ if (users != '') {
 
 });
 
-function remove(){
+function remove() {
     searchInput.value = "";
     carregar_jogos("home", "all");
-    users.forEach(user =>{
+    users.forEach(user => {
         user.element.classList.toggle("hide");
     })
 }
@@ -85,18 +85,18 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">'+response[0].title+'</p><p class="description">'+response[0].short_description+'</p></div></div>';
+                destaque.innerHTML = '<div class="imagem_game"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><p class="description">' + response[0].short_description + '</p> <input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" checked id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"></div></div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
-                    if(response[i].id in localStorage) {
+                    if (response[i].id in localStorage) {
                         jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" checked id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
-                    }else{
+                    } else {
                         jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
                     }
-                    
+
 
                 }
-                
+
             })
             .then(response => console.log(response))
             .catch(err => console.error(err));
@@ -107,7 +107,7 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">'+response[0].title+'</p><p class="description">'+response[0].short_description+'</p></div></div>';
+                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><p class="description">' + response[0].short_description + '</p></div></div>';
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
                     jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
