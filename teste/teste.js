@@ -48,6 +48,8 @@ searchInput.addEventListener("input", habib => {
 
 });
 
+
+
 function remove() {
     searchInput.value = "";
     carregar_jogos("home", "all");
@@ -55,7 +57,6 @@ function remove() {
         user.element.classList.toggle("hide");
     })
 }
-
 // variaveis para exibir os jogos
 let plataforma;
 let categoria;
@@ -80,17 +81,26 @@ const options = {
 //funcao para carregar os jogos
 function carregar_jogos(categoria, plataforma) {
 
+    document.getElementById("carregar").style.visibility = "visible";
     if (categoria == "home") {
         fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=' + plataforma, options)
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><p class="description">' + response[0].short_description + '</p> <input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" checked id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"></div></div>';
+
+
+                if (response[0].id in localStorage) {
+                    destaque.innerHTML = '<div class="imagem_game"><a href="' + response[0].game_url + '" target="blank"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></a><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" checked id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"><i class="fa"></i></label><p class="description">' + response[0].short_description + '</p></div></div>';
+                } else {
+
+                    destaque.innerHTML = '<div class="imagem_game"><a href="' + response[0].game_url + '" target="blank"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></a><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"><i class="fa"></i></label><p class="description">' + response[0].short_description + '</p></div></div>';
+                }
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
                     if (response[i].id in localStorage) {
-                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" checked id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" checked id="cm_star-empty' + response[i].id + '" ><label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
                     } else {
+
                         jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
                     }
 
@@ -107,12 +117,23 @@ function carregar_jogos(categoria, plataforma) {
             .then(response => response.json())
             .then(response => {
                 console.log(response[0]);
-                destaque.innerHTML = '<div class="imagem_game"><video class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><p class="description">' + response[0].short_description + '</p></div></div>';
+
+                if (response[0].id in localStorage) {
+                    destaque.innerHTML = '<div class="imagem_game"><a href="' + response[0].game_url + '" target="blank"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></a><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" checked id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"><i class="fa"></i></label><p class="description">' + response[0].short_description + '</p></div>';
+                } else {
+                    destaque.innerHTML = '<div class="imagem_game"><a href="' + response[0].game_url + '" target="blank"><video id="video" class="imagem_grande" autoplay="autoplay"><source src="https://www.freetogame.com/g/' + response[0].id + '/videoplayback.webm" alt="imagem grande" type="video/webm"></video></a><div class="imagen_game_center"><p class="title">' + response[0].title + '</p><input onclick="fav(' + response[0].id + ')" name="' + response[0].id + '" type="checkbox" id="cm_star-empty' + response[0].id + '" >  <label for="cm_star-empty' + response[0].id + '"><i class="fa"></i></label><p class="description">' + response[0].short_description + '</p></div>';
+                }
                 jogos.innerHTML = '';
                 for (var i = 1; i <= lista_jogos; i++) {
-                    jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    if (response[i].id in localStorage) {
+                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" checked id="cm_star-empty' + response[i].id + '" ><label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    } else {
+                        jogos.innerHTML += '<div class="jogo"><div class="imagem-jogo"><a href="' + response[i].game_url + '" target="blank"><img src="' + response[i].thumbnail + '" alt="anal"> </a><input onclick="fav(' + response[i].id + ')" name="' + response[i].id + '" type="checkbox" id="cm_star-empty' + response[i].id + '" >  <label for="cm_star-empty' + response[i].id + '"><i class="fa"></i></label></div><p>' + response[i].title + '</p></div>';
+                    }
+
                 }
             }).catch(err => console.error(err));
+
 
     }
 }
@@ -138,6 +159,7 @@ function selecionar_categoria(cat) {
 }
 
 // funcao para selecionar plataforma 
+let favor;
 
 function plataformas(plat) {
     favor = document.getElementById("favoritos");
@@ -216,7 +238,7 @@ function f() {
     pc.style.color = "white";
     destaque.innerHTML = "";
     jogos.innerHTML = '';
-    document.getElementById("carregar").style.display = "none";
+    document.getElementById("carregar").style.visibility = "hidden";
 
 
 
