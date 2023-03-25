@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" onchange="check()" onload="check()">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiblse" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <!-- CSS only -->
+    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="teste.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+    <header>
+        <div class="conteudo">
+            <img src="../logo8BIT.png" alt="" class="logo">
+        </div>
+        <div>
+            <ul class="navigation">
+                <li onclick="plataformas('pc')"><a id="pc" href="#">Pc</a></li>
+                <li onclick="plataformas('browser')"><a id="browser" href="#">Browser</a></li>
+                <li onclick="plataformas('all')"><a id="all" href="#">All</a></li>
+                <li><a onclick="f()" id="favoritos" href="#">Favoritos</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input class="search" id="search_id" type="text" type="reset" placeholder="Search" data-search>
+            <img class="fa-search" src="../lupa copiar.png" alt="">
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li id="home" onclick="selecionar_categoria(home);">
+                <div class="home-icon">
+                    <img src="../home.png" alt="">
+                </div>
+            </li>
+            <li id="pvp" onclick="selecionar_categoria(pvp);">
+                <div class="pvp-icon">
+                    <img class="pvp" src="../pvp.png" alt="">
+                </div>
+            </li>
+            <li id="mmofps" onclick="selecionar_categoria(mmofps);">
+                <div class="mmofps-icon">
+                    <img class="mmofps" src="../mmofps.png" alt="">
+                </div>
+            </li>
+            <li id="survival" onclick="selecionar_categoria(survival);">
+                <div class="survival-icon">
+                    <img class="survival" src="../survival.png" alt="">
+                </div>
+            </li>
+            <li id="card" onclick="selecionar_categoria(card);">
+                <div class="card-icon">
+                    <img class="carta" src="../card.png" alt="">
+                </div>
+            </li>
+            <li id="fighting" onclick="selecionar_categoria(fighting);">
+                <div class="fighting-icon">
+                    <img src="../fighting.png" alt="">
+                </div>
+            </li>
+            <li id="shooter" onclick="selecionar_categoria(shooter);">
+                <div class="shoting-icon">
+                    <img src="../gun.png" alt="">
+                </div>
+            </li>
+            <li id="open-world" onclick="selecionar_categoria(world);">
+                <div class="mundo-icon">
+                    <img class="mundo" src="../mundo.png" alt="">
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="games">
+
+        <div class="center">
+
+            <div id="destaque">
+            </div>
+            <div id="jogos" class="jogos">
+                <template data-user-template>
+                            <div class="card jogo">
+                            <div id="games" class="header" data-header></div>
+                        </div>
+                  </template>
+            </div>
+
+            <div class="user-cards" data-user-cards-container></div>
+
+
+            <button id="carregar" class="botao_carregar" onclick=" carregar_mais()">Carregar Mais</button>
+
+
+        </div>
+    </section>
+</body>
+
+<script src="teste.js"></script>
+
+</html>
